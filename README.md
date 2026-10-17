@@ -1,29 +1,50 @@
-# ATLAS / 12 — application sportive personnelle
+# ATLAS / 12 — v1.1, galerie d'exercices
 
-## Contenu
-- `index.html` : interface HTML/CSS/JS sans framework ni dépendance externe.
-- `manifest.webmanifest` + `sw.js` : configuration d'application web installable, cache hors ligne après première ouverture sur HTTPS.
-- `icons/` : icônes d'écran d'accueil.
+Application personnelle pour iPhone : **HTML/CSS/JavaScript**, PWA hors ligne après première ouverture, sans backend ni compte.
 
-## Ouvrir rapidement
-Tu peux ouvrir `index.html` dans un navigateur sur ordinateur pour tester l'interface. Sur iPhone, la prévisualisation des fichiers HTML depuis l'application Fichiers peut limiter JavaScript ou la sauvegarde locale. **Pour enregistrer tes performances au quotidien, privilégie l'installation web décrite ci-dessous.**
+## Nouveautés v1.1
+- Chaque exercice a un panneau **Départ / Arrivée** présentant deux schémas simplifiés de mouvement. **Attention : schémas indicatifs, ils ne sont pas des photographies ni des instructions techniques complètes.**
+- Ajout de **vraies photos personnelles** pour les deux phases, directement via le sélecteur de photos de l'iPhone ; suppression ou remplacement par exercice.
+- Compression locale des photos et stockage en **IndexedDB** (indépendant du journal de séries).
+- Export JSON **incluant les photos** ; import des sauvegardes V1 compatible ; interface mobile et fonctionnement hors connexion.
+- Correctif de cache : le service worker privilégie maintenant le réseau pour la page HTML, pour faciliter les mises à jour.
 
-## Installer sur l'iPhone comme une application
-1. Décompresse le ZIP, puis mets tous les fichiers du dossier `atlas12` en ligne ensemble sur un hébergement HTTPS statique (GitHub Pages, Netlify ou Cloudflare Pages). Pas de serveur ni de base de données nécessaires.
-2. Ouvre l'URL publique HTTPS dans Safari sur ton iPhone.
-3. Menu Partager → Sur l'écran d'accueil → cocher **Ouvrir comme app web** → Ajouter.
-4. Lance l'application par son icône et fais une première ouverture avec Internet pour permettre la mise en cache. La navigation et les contenus peuvent ensuite fonctionner hors connexion.
+Le programme, les séries, poids, RIR, nutrition, mesures, minuteries et préférences de la V1 sont conservés sans migration : la clé `atlas12-data-v1` est inchangée.
 
-**Note confidentialité :** les données personnelles sont sauvegardées en `localStorage` dans le contexte du site/app sur l'appareil. Pas de compte, pas de serveur, pas de synchronisation automatique. Sauvegarde régulièrement dans l'onglet **Plus → Réglages → Exporter**. Le stockage peut être supprimé lors de nettoyage des données Safari ou par le système. Sur iPhone, l'application ajoutée à l'écran d'accueil peut avoir un espace de stockage différent de l'onglet Safari.
+## Mise à jour GitHub Pages (dépôt `erwannchapellon-pxo/atlas12`)
 
-## Fonctionnalités
-- Séances Upper A, Lower A, Lower B, Upper B et exercices complets ; charges, répétitions et RIR par série ; validation de série ; rappels des charges précédentes ; minuteur de repos.
-- Compteur de séries réalisées et progression 12 semaines ; calendrier ajustable.
-- Objectifs caloriques, protéines, lipides, estimation des glucides ; menu 7 jours, batch cooking et liste de courses.
-- Suivi poids, tour de taille, pas, sommeil, énergie, calories et protéines ; graphiques et historique.
-- Rituels de récupération et rappels techniques ; export/import JSON et réglages modifiables.
+**Avant de modifier le dépôt :** ouvre ATLAS / 12 sur l'appareil où se trouvent tes mesures et utilise `Plus → Réglages → Exporter mes données`. Garde le `.json` dans Fichiers/iCloud Drive.
+
+1. Télécharge et décompresse `ATLAS12_v1.1_GitHub_Pages.zip`.
+2. Va sur https://github.com/erwannchapellon-pxo/atlas12 et assure-toi d'être à la **racine** (`/atlas12`, pas dans un sous-dossier `ATLAS12_iPhone_PWA/atlas12`).
+3. Clique sur **Add file → Upload files**.
+4. Sélectionne **le contenu** du dossier extrait, pas le dossier parent : `index.html`, `sw.js`, `manifest.webmanifest`, `README.md`, `icons/`.
+5. Pour les fichiers déjà présents, accepte leur remplacement (ou utilise Git en ligne de commande). Fais `Commit changes` sur `main`.
+6. Dans Settings → Pages, laisse `Deploy from a branch`, `main`, `/(root)`. Après le succès de l'onglet Actions, ouvre https://erwannchapellon-pxo.github.io/atlas12/ et recharge.
+7. Sur iPhone, ferme puis rouvre la PWA, si besoin reconnecte-toi brièvement à Internet pour mettre à jour le cache.
+
+⚠️ La saisie des séries et mesures est conservée sur **l'appareil/origine où elle a été faite** ; les données ne sont pas synchronisées entre Safari et la PWA ou entre iPhone et ordinateur. **Ne désinstalle pas** l'app avant sauvegarde/export.
+
+## Déploiement local recommandé pour un développeur
+
+```bash
+# Depuis un clone du dépôt GitHub
+cp -R chemin/du/zip/decompresse/. .
+git add index.html sw.js manifest.webmanifest icons/ README.md
+git commit -m "feat: exercise technique photos, offline diagrams and export"
+git push origin main
+```
+
+## QA
+
+Tests exécutés en navigateur Chromium mobile simulé : ouverture des quatre séances, saisie des charges/répétitions, persistance après recharge, navigation, paramètres, photos individuelles et export/import JSON (avec IndexedDB remplacé par un stockage simulé pour ces tests), absence de débordement horizontal. Le service worker a été contrôlé statiquement, mais son installation et la persistance IndexedDB réelle nécessitent un test depuis une origine HTTPS. **Aucun test sur iPhone physique n'est réalisé ici.**
+
+## Licences et photos
+
+Les schémas intégrés sont générés dans le code de l'application. Pour obtenir de **vraies photos** dans un exercice, ouvre son menu et appuie sur **+ Photo** pour la phase 1 et la phase 2. Utilise des images prises par toi-même ou que tu es autorisé à réutiliser. L'app n'intègre pas de photographies issues de catalogues tiers dont les droits seraient incertains.
 
 ## Limites
-- Pas de synchronisation multiappareils, de compte, de notifications programmées ni de suivi connecté Apple Health.
-- Les calories sont un point de départ et ne sont pas recalculées automatiquement en fonction de chaque mesure ; tu peux modifier les cibles dans les paramètres.
-- Les menus sont indicatifs et leurs grammes ne constituent pas un bilan exact de macronutriments.
+
+- Les visuels d'origine sont des schémas simplifiés. Ils peuvent aider à se repérer mais ne remplacent pas une démonstration par un professionnel.
+- Les photos sont locales, non synchronisées et incluses dans l'export JSON ; la taille de la sauvegarde augmente avec le nombre de photos.
+- Aucune connexion automatique à Apple Health ; aucune mesure médicale.

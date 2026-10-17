@@ -1,7 +1,7 @@
 {
   "name": "ATLAS / 12 — Coaching & progression",
   "short_name": "ATLAS 12",
-  "description": "Programme de recomposition sur 12 semaines avec séances, nutrition et suivi hors ligne.",
+  "description": "Programme de recomposition sur 12 semaines avec séances, photos, nutrition et suivi hors ligne.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
