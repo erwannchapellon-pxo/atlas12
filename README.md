@@ -1,20 +1,30 @@
-# ATLAS / 12 — v1.2
+# ATLAS / 12 — v1.3 (images d’exercices existantes)
 
-Application statique PWA pour GitHub Pages avec 58 illustrations anatomiques vectorielles originales (29 exercices × 2 positions).
+Cette livraison ne contient **pas de dessins générés par IA**. Elle contient une **liste vérifiée de 29 exercices**, une intégration des visuels originaux Workout Guide de Bryl Lim (CC BY-SA 4.0) et un processus GitHub Actions qui **télécharge et installe 58 fichiers SVG réels** dans le site publié. Les fichiers binaires ne peuvent pas être intégrés directement à l’archive fournie depuis cet environnement.
 
-## Publication dans GitHub (sans terminal)
+## Mise à jour 100 % sur le site GitHub (pas de terminal)
 
-1. Exporter une sauvegarde JSON de l’application existante dans **Plus → Réglages** et conserver le fichier personnel sur son appareil.
-2. Ouvrir `https://github.com/erwannchapellon-pxo/atlas12` → branche `main`.
-3. Via **Add file → Upload files**, déposer **le contenu** du dossier fourni (`index.html`, `sw.js`, `manifest.webmanifest`, `README.md`, `icons/` et `assets/`) directement à la racine, puis **Commit changes**. Ne pas envoyer le dossier parent.
-4. Si GitHub refuse de remplacer un fichier existant via Upload files, ouvrir le fichier sur GitHub, cliquer sur le crayon **Edit**, puis remplacer son contenu par la version locale pour les fichiers texte. Pour les assets, uploader tout le répertoire `assets/` depuis la racine.
-5. Attendre la coche verte dans **Actions**, puis ouvrir `https://erwannchapellon-pxo.github.io/atlas12/`.
-6. Fermer et rouvrir la PWA sur iPhone. La nouvelle version du cache service worker est `atlas12-app-v1.2.0`.
+1. Exporter la sauvegarde JSON de l’application actuelle (Plus → Réglages). NE PAS publier ce JSON personnel.
+2. Dans le dépôt `erwannchapellon-pxo/atlas12`, choisir **Settings → Pages → Build and deployment → Source : GitHub Actions** (remplace `Deploy from a branch`).
+3. Décompresser le ZIP, ouvrir l’onglet Code du dépôt, branche `main`, racine. Sur Ubuntu, **Ctrl+H** affiche le dossier caché `.github` : il faut également l’envoyer.
+4. **Add file → Upload files** ; sélectionner le contenu décompressé (`index.html`, `sw.js`, `manifest.webmanifest`, `icons/`, `assets/`, `scripts/`, `.github/`, `README.md`, `CREDITS_MEDIA.md`), pas le dossier parent. Valider par **Commit changes**.
+5. Ouvrir l’onglet **Actions**, workflow "ATLAS12 - publier avec les visuels libres". Si besoin, **Run workflow** pour un lancement manuel.
+6. Patienter jusqu’à la coche verte du workflow; ouvrir `https://erwannchapellon-pxo.github.io/atlas12/` (forcer le rechargement si nécessaire).
 
-## Données, sécurité et licences
+## Contrôles après publication
 
-- Les séries, poids, mensurations et paramètres conservent la clé `localStorage` historique `atlas12-data-v1`. **Pas de migration destructive.**
-- Les photos personnelles restent dans IndexedDB et sont incluses dans l’export JSON. Ne jamais envoyer l’export personnel sur GitHub public.
-- Les 58 illustrations SVG sont **dessinées spécifiquement pour cette application**, pas copiées d’un site tiers. Leur rendu est anatomique stylisé, **non photographique** : ce sont des repères de positions, pas un tutoriel biomécanique exhaustif.
-- Cette version est une application statique, compatible avec GitHub Pages sans React ni serveur.
-- Pour une conservation durable des données, effectuer des sauvegardes JSON régulières.
+- Dans **Actions**, l’étape "Télécharger les images CC BY-SA" doit afficher 58 images téléchargées et validées.
+- Tester Séances → Développé incliné haltères → images départ/arrivée visibles (pas d’anciens personnages en bâtons).
+- Tester une autre machine (Hack Squat) et conserver une charge de test après fermeture de l’application.
+- Sur iPhone, fermer/rouvrir la PWA pour récupérer le cache mis à jour. Les photos personnelles ajoutées continuent à prendre la priorité dans les fiches.
+
+## Données
+
+Les charges, mesures, séances et réglages restent sous la clé historique `atlas12-data-v1` du localStorage. Les photos personnelles restent en IndexedDB. Un changement d’origine de domaine ou une suppression de données Safari peut les effacer : conserver le JSON de sauvegarde.
+
+## Limites importantes
+
+- Les images distribuées sont **des illustrations publiées par une banque existante**, pas des photographies 3D réalistes type LouisMove. Quelques fiches présentent une variante proche et le signalent.
+- Les 58 originaux seront présents sur GitHub Pages **après succès du workflow**, pas physiquement dans le ZIP. Le téléchargement dépend de GitHub Actions et de l’accessibilité des serveurs de la source.
+- Si un téléchargement échoue, le workflow affiche une erreur et s’arrête : aucune fausse image ne sera substituée silencieusement. En secours, l’application peut essayer le CDN officiel pour afficher le visuel à l’écran.
+- Les modifications/adaptations de ces images restent soumises à la licence CC BY-SA 4.0. Attribution et sources disponibles dans `CREDITS_MEDIA.md` et directement sous chaque exercice.
