@@ -1,0 +1,147 @@
+{
+  "incdb": {
+    "slug": "incline-dumbbell-press",
+    "match": "exacte",
+    "note": ""
+  },
+  "chestrow": {
+    "slug": "chest-supported-row",
+    "match": "exacte",
+    "note": ""
+  },
+  "shoulderpress": {
+    "slug": "machine-shoulder-press",
+    "match": "exacte",
+    "note": ""
+  },
+  "latpulldown": {
+    "slug": "lat-pulldown",
+    "match": "variante",
+    "note": "Illustration : tirage vertical classique ; conserve ta prise neutre sur ta machine."
+  },
+  "latcable": {
+    "slug": "cable-lateral-raise",
+    "match": "exacte",
+    "note": ""
+  },
+  "cablefly": {
+    "slug": "incline-cable-fly",
+    "match": "variante",
+    "note": "Illustration : écarté incliné à la poulie ; ton exercice est bas vers haut debout."
+  },
+  "ropepush": {
+    "slug": "rope-tricep-pushdown",
+    "match": "exacte",
+    "note": ""
+  },
+  "hammer": {
+    "slug": "hammer-curl",
+    "match": "exacte",
+    "note": ""
+  },
+  "hacksquat": {
+    "slug": "hack-squat",
+    "match": "exacte",
+    "note": ""
+  },
+  "rdl": {
+    "slug": "dumbbell-romanian-deadlift",
+    "match": "variante",
+    "note": "Illustration aux haltères : si tu utilises une barre, les appuis et la trajectoire changent légèrement."
+  },
+  "legpress": {
+    "slug": "leg-press",
+    "match": "exacte",
+    "note": ""
+  },
+  "legcurlseat": {
+    "slug": "seated-leg-curl",
+    "match": "exacte",
+    "note": ""
+  },
+  "calfstand": {
+    "slug": "standing-calf-raise",
+    "match": "exacte",
+    "note": ""
+  },
+  "cablecrunch": {
+    "slug": "cable-crunch",
+    "match": "exacte",
+    "note": ""
+  },
+  "smithsquat": {
+    "slug": "smith-machine-squat",
+    "match": "exacte",
+    "note": ""
+  },
+  "bulgarian": {
+    "slug": "bulgarian-split-squat",
+    "match": "exacte",
+    "note": ""
+  },
+  "hipthrust": {
+    "slug": "smith-machine-hip-thrust",
+    "match": "variante",
+    "note": "Illustration avec Smith : adapte si tu utilises une barre libre."
+  },
+  "legcurllie": {
+    "slug": "lying-leg-curl",
+    "match": "exacte",
+    "note": ""
+  },
+  "legext": {
+    "slug": "leg-extension",
+    "match": "exacte",
+    "note": ""
+  },
+  "calfseat": {
+    "slug": "seated-calf-raise",
+    "match": "exacte",
+    "note": ""
+  },
+  "pallof": {
+    "slug": "pallof-press",
+    "match": "exacte",
+    "note": ""
+  },
+  "inclinesmith": {
+    "slug": "incline-bench-press",
+    "match": "variante",
+    "note": "Illustration avec barre libre inclinée : garde la trajectoire guidée de ta Smith."
+  },
+  "pullups": {
+    "slug": "pull-up",
+    "match": "exacte",
+    "note": ""
+  },
+  "chestpress": {
+    "slug": "machine-chest-press",
+    "match": "exacte",
+    "note": ""
+  },
+  "rowone": {
+    "slug": "single-arm-cable-row",
+    "match": "exacte",
+    "note": ""
+  },
+  "latmachine": {
+    "slug": "machine-lateral-raise",
+    "match": "exacte",
+    "note": ""
+  },
+  "reversepec": {
+    "slug": "reverse-pec-deck",
+    "match": "exacte",
+    "note": ""
+  },
+  "overheadtri": {
+    "slug": "overhead-tricep-extension",
+    "match": "exacte",
+    "note": ""
+  },
+  "preachercurl": {
+    "slug": "preacher-curl",
+    "match": "exacte",
+    "note": ""
+  }
+}
